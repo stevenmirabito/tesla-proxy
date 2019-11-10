@@ -1,0 +1,57 @@
+{% extends "layout.html" %}
+{% block content %}
+<div class="container">
+  <form class="ui form {% if success %}success{% endif %}" action="/setup" method="post">
+    <input type="hidden" name="_csrf_token" value="{{ csrf_token }}">
+
+    <div class="ui card">
+      <div class="content">
+        <div class="header">Tesla Proxy Setup</div>
+      </div>
+
+      <div class="content">
+          <div class="ui success message">
+            <div class="header">
+              Update Successful
+            </div>
+            <p>Your credentials have been updated.</p>
+          </div>
+
+          <p>Leave any field blank to keep the current value.</p>
+
+          <div class="field">
+            <label>Setup Password</label>
+            <input type="password" name="setup_password" placeholder="******">
+          </div>
+
+          <div class="field">
+            <label>API Key</label>
+            <input type="text" name="api_key" placeholder="c0aa09c4-f2dd-462a-a334-eeb21546d240">
+          </div>
+
+          <div class="field">
+            <label>Tesla Username</label>
+            <input type="text" name="tesla_username" placeholder="elon@tesla.com">
+          </div>
+
+          <div class="field">
+            <label>Tesla Password</label>
+              <input type="password" name="tesla_password" placeholder="******">
+              <div class="ui pointing label">
+                <i class="info icon"></i>
+                Your password is exchanged for a refresh token and never stored.
+              </div>
+          </div>
+      </div>
+
+      <div class="extra content">
+        <button class="ui positive icon button" type="submit">
+          <i class="save icon"></i>
+          Save
+        </button>
+      </div>
+
+    </div>
+  </form>
+</div>
+{% endblock %}

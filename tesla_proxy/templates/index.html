@@ -1,0 +1,14 @@
+{% extends "layout.html" %}
+{% block content %}
+<div class="container">
+  <form action="/setup" method="post">
+    <input type="hidden" name="_csrf_token" value="{{ csrf_token }}">
+    <div class="ui action input">
+      <input type="password" name="password">
+      <button type="submit" class="ui icon button">
+        <i class="arrow right icon"></i>
+      </button>
+    </div>
+  </form>
+</div>
+{% endblock %}
